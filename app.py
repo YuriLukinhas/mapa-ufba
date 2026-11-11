@@ -122,7 +122,7 @@ def carregar_dados():
     curso_instituto = ler_csv(CURSO_INSTITUTO_CSV)
 
     if disciplinas.empty or not {"id", "nome"}.issubset(disciplinas.columns):
-        return None, None, None, None, []
+        return None, None, None, None, [], pd.DataFrame(), pd.DataFrame()
 
     for tabela in (disciplinas, curso_disciplina, expressoes):
         for coluna in tabela.columns:
