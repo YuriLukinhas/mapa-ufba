@@ -36,15 +36,16 @@ st.markdown("""
 # ==============================================================================
 # CONFIGURAÇÃO: CAMINHO DA PASTA DOS DADOS
 # ==============================================================================
-DATA_DIR = r"E:\base poli e ic"
+from pathlib import Path
 
-DISCIPLINAS_CSV = os.path.join(DATA_DIR, "disciplinas.csv")
-CURSO_DISCIPLINA_CSV = os.path.join(DATA_DIR, "curso_disciplina.csv")
-EXPRESSOES_CSV = os.path.join(DATA_DIR, "disciplinas_unidades_prerequisitos.csv")
-CURSO_INSTITUTO_CSV = os.path.join(DATA_DIR, "curso_instituto.csv")
-PROBLEMAS_CSV = os.path.join(DATA_DIR, "problemas_dados.csv")
-UNIDADES_GEO_CSV = os.path.join(DATA_DIR, "unidades_para_georreferenciar.csv")
+DATA_DIR = Path(__file__).resolve().parent
 
+DISCIPLINAS_CSV = DATA_DIR / "disciplinas.csv"
+CURSO_DISCIPLINA_CSV = DATA_DIR / "curso_disciplina.csv"
+EXPRESSOES_CSV = DATA_DIR / "disciplinas_unidades_prerequisitos.csv"
+CURSO_INSTITUTO_CSV = DATA_DIR / "curso_instituto.csv"
+PROBLEMAS_CSV = DATA_DIR / "problemas_dados.csv"
+UNIDADES_GEO_CSV = DATA_DIR / "unidades_para_georreferenciar.csv"
 
 @st.cache_data
 def ler_csv(caminho):
